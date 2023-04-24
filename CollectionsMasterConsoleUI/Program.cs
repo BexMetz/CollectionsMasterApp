@@ -126,7 +126,7 @@ namespace CollectionsMasterConsoleUI
             {
                 if (numArray[i] % 3 == 0)
                 {
-                    numArray[1] = 0;
+                    numArray[i] = 0;
                 }
             }
 
