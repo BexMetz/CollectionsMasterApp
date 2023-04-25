@@ -19,10 +19,13 @@ namespace CollectionsMasterConsoleUI
             Populater(numArray);
 
             //TODO: Print the first number of the array
-            Console.WriteLine($"{numArray[0]}");
+            Console.WriteLine($"First number of array = {numArray[0]}");
 
             //TODO: Print the last number of the array
-            Console.WriteLine($"{numArray[numArray.Length - 1]}");
+            Console.WriteLine($"Last number of array = {numArray[numArray.Length - 1]}");
+
+            Console.WriteLine("-------------------");
+
 
             Console.WriteLine("All Numbers Original");
             //UNCOMMENT this method to print out your numbers from arrays or lists
@@ -80,9 +83,9 @@ namespace CollectionsMasterConsoleUI
             int userInput;
             bool isNumber;
 
+            Console.WriteLine("What number will you search for in the number list?");
             do
             {
-                Console.WriteLine("What number will you search for in the number list?");
                 isNumber = int.TryParse(Console.ReadLine(), out userInput);
             } while (isNumber == false);
 
@@ -133,22 +136,16 @@ namespace CollectionsMasterConsoleUI
             NumberPrinter(numArray);
         }
 
-        private static void OddKiller(List<int> numberList)
+        private static void OddKiller(List<int> numList)
         {
-            for (int i = numberList.Count - 1; i >= 0; i--)
-            {
-                if (numberList[i] % 2 != 0)
-                {
-                    numberList.Remove(i);
-                }
-            }
-
-            NumberPrinter(numberList);
+            numList.RemoveAll(i => i % 2 != 0);
+            
+            NumberPrinter(numList);
         }
 
-        private static void NumberChecker(List<int> numberList, int searchNumber)
+        private static void NumberChecker(List<int> numList, int searchNumber)
         {
-            if (numberList.Contains(searchNumber))
+            if (numList.Contains(searchNumber))
             {
                 Console.WriteLine($"Yes, I have the number you are searching for");
             }
@@ -180,11 +177,11 @@ namespace CollectionsMasterConsoleUI
             }
         }        
 
-        private static void ReverseArray(int[] array)
+        private static void ReverseArray(int[] numarray)
         {
-            Array.Reverse(array);
+            Array.Reverse(numarray);
 
-            NumberPrinter(array);
+            NumberPrinter(numarray);
         }
 
         /// <summary>
